@@ -12,10 +12,78 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "languages": [
+      {
+        "id": "markdown",
+        "aliases": [
+          "markdown", "md"
+        ],
+        "extensions": [
+          ".md"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
     "commands": [
       {
         "command": "ultimate-md.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "ultimate-md.toggleHeader1",
+        "title": "Toggle Header 1"
+      },
+      {
+        "command": "ultimate-md.toggleHeader2",
+        "title": "Toggle Header 2"
+      },
+      {
+        "command": "ultimate-md.toggleHeader3",
+        "title": "Toggle Header 3"
+      },
+      {
+        "command": "ultimate-md.toggleHeader4",
+        "title": "Toggle Header 4"
+      },
+      {
+        "command": "ultimate-md.toggleHeader5",
+        "title": "Toggle Header 5"
+      },
+      {
+        "command": "ultimate-md.toggleHeader6",
+        "title": "Toggle Header 6"
+      }
+    ],
+    "keybindings": [
+      {
+      "key": "alt+m 1",
+      "command": "ultimate-md.toggleHeader1",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m 2",
+      "command": "ultimate-md.toggleHeader2",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m 3",
+      "command": "ultimate-md.toggleHeader3",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m 4",
+      "command": "ultimate-md.toggleHeader4",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m 5",
+      "command": "ultimate-md.toggleHeader5",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m 6",
+      "command": "ultimate-md.toggleHeader6",
+      "when": "editorLangId == 'markdown'"
       }
     ]
   },

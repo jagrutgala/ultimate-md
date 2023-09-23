@@ -21,8 +21,44 @@ export function activate(context: vscode.ExtensionContext) {
       vscode.window.showInformationMessage("Hello World from ultimate-md!");
     }
   );
-
   context.subscriptions.push(disposable);
+
+  let disposableToggleHeading1 = vscode.commands.registerCommand(
+    "ultimate-md.toggleHeader1",
+    toggleHeading1
+  );
+  context.subscriptions.push(disposableToggleHeading1);
+
+  let disposableToggleHeading2 = vscode.commands.registerCommand(
+    "ultimate-md.toggleHeader2",
+    toggleHeading2
+  );
+  context.subscriptions.push(disposableToggleHeading2);
+
+  let disposableToggleHeading3 = vscode.commands.registerCommand(
+    "ultimate-md.toggleHeader3",
+    toggleHeading3
+  );
+  context.subscriptions.push(disposableToggleHeading3);
+
+  let disposableToggleHeading4 = vscode.commands.registerCommand(
+    "ultimate-md.toggleHeader4",
+    toggleHeading4
+  );
+  context.subscriptions.push(disposableToggleHeading4);
+
+  let disposableToggleHeading5 = vscode.commands.registerCommand(
+    "ultimate-md.toggleHeader5",
+    toggleHeading5
+  );
+  context.subscriptions.push(disposableToggleHeading5);
+
+  let disposableToggleHeading6 = vscode.commands.registerCommand(
+    "ultimate-md.toggleHeader6",
+    toggleHeading6
+  );
+  context.subscriptions.push(disposableToggleHeading6);
+
 }
 
 // This method is called when your extension is deactivated

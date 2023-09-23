@@ -11,5 +11,6 @@
     "[typescript]": {
         "editor.tabSize": 2,
         "editor.useTabStops": true
-    }
+    },
+    "cmake.configureOnOpen": true
 }
