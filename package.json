@@ -52,6 +52,10 @@
       {
         "command": "ultimate-md.toggleHeader6",
         "title": "Toggle Header 6"
+      },
+      {
+        "command": "ultimate-md.toggleBold",
+        "title": "Toggle Bold"
       }
     ],
     "keybindings": [
@@ -83,6 +87,11 @@
       {
       "key": "alt+m 6",
       "command": "ultimate-md.toggleHeader6",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m b",
+      "command": "ultimate-md.toggleBold",
       "when": "editorLangId == 'markdown'"
       }
     ]

@@ -2,6 +2,8 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import { toggleHeading1, toggleHeading2, toggleHeading3, toggleHeading4, toggleHeading5, toggleHeading6 } from "./commands/toggleHeadings";
+import { RegisterCommandService } from "./helpers/registerCommand";
+import { toggleBold } from "./commands/toggleBold";
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -13,51 +15,23 @@ export function activate(context: vscode.ExtensionContext) {
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
-  let disposable = vscode.commands.registerCommand(
-    "ultimate-md.helloWorld",
-    () => {
-      // The code you place here will be executed every time your command is executed
-      // Display a message box to the user
-      vscode.window.showInformationMessage("Hello World from ultimate-md!");
-    }
-  );
-  context.subscriptions.push(disposable);
+  const registerCommandService: RegisterCommandService = new RegisterCommandService();
 
-  let disposableToggleHeading1 = vscode.commands.registerCommand(
-    "ultimate-md.toggleHeader1",
-    toggleHeading1
-  );
-  context.subscriptions.push(disposableToggleHeading1);
+  registerCommandService.registerCommand("ultimate-md.toggleHeader1", toggleHeading1);
+  registerCommandService.registerCommand("ultimate-md.toggleHeader2", toggleHeading2);
+  registerCommandService.registerCommand("ultimate-md.toggleHeader3", toggleHeading3);
+  registerCommandService.registerCommand("ultimate-md.toggleHeader4", toggleHeading4);
+  registerCommandService.registerCommand("ultimate-md.toggleHeader5", toggleHeading5);
+  registerCommandService.registerCommand("ultimate-md.toggleHeader6", toggleHeading6);
 
-  let disposableToggleHeading2 = vscode.commands.registerCommand(
-    "ultimate-md.toggleHeader2",
-    toggleHeading2
-  );
-  context.subscriptions.push(disposableToggleHeading2);
-
-  let disposableToggleHeading3 = vscode.commands.registerCommand(
-    "ultimate-md.toggleHeader3",
-    toggleHeading3
-  );
-  context.subscriptions.push(disposableToggleHeading3);
-
-  let disposableToggleHeading4 = vscode.commands.registerCommand(
-    "ultimate-md.toggleHeader4",
-    toggleHeading4
-  );
-  context.subscriptions.push(disposableToggleHeading4);
-
-  let disposableToggleHeading5 = vscode.commands.registerCommand(
-    "ultimate-md.toggleHeader5",
-    toggleHeading5
-  );
-  context.subscriptions.push(disposableToggleHeading5);
-
-  let disposableToggleHeading6 = vscode.commands.registerCommand(
-    "ultimate-md.toggleHeader6",
-    toggleHeading6
-  );
-  context.subscriptions.push(disposableToggleHeading6);
+  registerCommandService.registerCommand("ultimate-md.toggleBold", toggleBold);
+  registerCommandService.commandsMap.forEach(x => {
+    let disposable = vscode.commands.registerCommand(
+      x.commandId,
+      x.command
+    );
+    context.subscriptions.push(disposable);
+  });
 
 }
 
