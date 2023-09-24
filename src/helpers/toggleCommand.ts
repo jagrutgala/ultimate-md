@@ -1,7 +1,11 @@
 import * as vscode from "vscode";
 import { isSelectionEmpty } from "../helpers/isSelectionEmpty";
 
-export const toggleCommand = async (startText: string, endText: string): Promise<void | boolean> => {
+export const toggleCommand = async (
+  startText: string,
+  endText: string,
+  pattern: RegExp
+): Promise<void | boolean> => {
   return new Promise(async (resolve, reject) => {
     let editor = vscode.window.activeTextEditor;
     if (editor === undefined || editor === null) {
@@ -13,10 +17,29 @@ export const toggleCommand = async (startText: string, endText: string): Promise
       isSuccess = await editor.edit((editorBuilder) => {
         selections.forEach((v) => {
           if (editor) {
-            const range = new vscode.Range(v.start, v.end);
+            const isEmpty = v.isEmpty;
+            let selection = v;
+            let range = editor.document.getWordRangeAtPosition(
+              v.start,
+              pattern
+            );
+
+            if (range == undefined && range == null) {
+              range = new vscode.Range(
+                new vscode.Position(v.active.line, 0),
+                v.end
+              );
+            }
+            selection = new vscode.Selection(range.start, range.end);
             const text = editor.document.getText(range);
-            const selection = new vscode.Selection(v.start, v.end);
-            editorBuilder.replace(selection, startText + text + endText);
+            if (pattern.test(text)) {
+              editorBuilder.replace(
+                selection,
+                text.substring(startText.length, text.length - endText.length)
+              );
+            } else {
+              editorBuilder.replace(selection, startText + text + endText);
+            }
           }
         });
       });
@@ -28,6 +51,5 @@ export const toggleCommand = async (startText: string, endText: string): Promise
     } else {
       reject(isSuccess);
     }
-
   });
-}
+};
