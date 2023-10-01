@@ -10,8 +10,8 @@ export const toggleCode = (): vscode.Selection | void => {
 };
 
 export const toggleBlockCode = (): vscode.Selection | void => {
-  const startText = "```";
-  const endText = "```";
+  const startText = "\n```\n";
+  const endText = "\n```\n";
 
   toggleCommand(startText, endText, CODE_PATTERN).then().catch();
 };

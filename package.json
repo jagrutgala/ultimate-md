@@ -72,6 +72,26 @@
       {
         "command": "ultimate-md.toggleStrike",
         "title": "Toggle Strike"
+      },
+      {
+        "command": "ultimate-md.insertImage",
+        "title": "Insert Image"
+      },
+      {
+        "command": "ultimate-md.insertLink",
+        "title": "Insert Link"
+      },
+      {
+        "command": "ultimate-md.toggleBullets",
+        "title": "Toggle Bullets"
+      },
+      {
+        "command": "ultimate-md.toggleNumbers",
+        "title": "Toggle Numbers"
+      },
+      {
+        "command": "ultimate-md.toggleCheckboxes",
+        "title": "Toggle Checkboxes"
       }
     ],
     "keybindings": [
@@ -128,6 +148,31 @@
       {
       "key": "alt+m s",
       "command": "ultimate-md.toggleStrike",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m shift+i",
+      "command": "ultimate-md.insertImage",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m l",
+      "command": "ultimate-md.insertLink",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m u",
+      "command": "ultimate-md.toggleBullets",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m o",
+      "command": "ultimate-md.toggleNumbers",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m x",
+      "command": "ultimate-md.toggleCheckboxes",
       "when": "editorLangId == 'markdown'"
       }
     ]

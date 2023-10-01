@@ -7,6 +7,8 @@ import { toggleBold } from "./commands/toggleBold";
 import { toggleBlockCode, toggleCode } from "./commands/toggleCode";
 import { toggleItalic } from "./commands/toggleItalic";
 import { toggleStrike } from "./commands/toggleStrike";
+import { insertImage, insertLink } from "./commands/insertImage";
+import { toggleBullets, toggleCheckboxes, toggleNumbers } from "./commands/toggleBullets";
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -26,7 +28,6 @@ export function activate(context: vscode.ExtensionContext) {
   registerCommandService.registerCommand("ultimate-md.toggleHeader4", toggleHeading4);
   registerCommandService.registerCommand("ultimate-md.toggleHeader5", toggleHeading5);
   registerCommandService.registerCommand("ultimate-md.toggleHeader6", toggleHeading6);
-  registerCommandService.registerCommand("ultimate-md.toggleHeader6", toggleHeading6);
 
   registerCommandService.registerCommand("ultimate-md.toggleBold", toggleBold);
   registerCommandService.registerCommand("ultimate-md.toggleCode", toggleCode);
@@ -34,6 +35,12 @@ export function activate(context: vscode.ExtensionContext) {
   registerCommandService.registerCommand("ultimate-md.toggleItalic", toggleItalic);
   registerCommandService.registerCommand("ultimate-md.toggleStrike", toggleStrike);
 
+  registerCommandService.registerCommand("ultimate-md.toggleBullets", toggleBullets);
+  registerCommandService.registerCommand("ultimate-md.toggleNumbers", toggleNumbers);
+  registerCommandService.registerCommand("ultimate-md.toggleCheckboxes", toggleCheckboxes);
+
+  registerCommandService.registerCommand("ultimate-md.insertImage", insertImage);
+  registerCommandService.registerCommand("ultimate-md.insertLink", insertLink);
 
   registerCommandService.commandsMap.forEach(x => {
     let disposable = vscode.commands.registerCommand(
