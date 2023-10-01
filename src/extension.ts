@@ -4,6 +4,9 @@ import * as vscode from "vscode";
 import { toggleHeading1, toggleHeading2, toggleHeading3, toggleHeading4, toggleHeading5, toggleHeading6 } from "./commands/toggleHeadings";
 import { RegisterCommandService } from "./helpers/registerCommand";
 import { toggleBold } from "./commands/toggleBold";
+import { toggleBlockCode, toggleCode } from "./commands/toggleCode";
+import { toggleItalic } from "./commands/toggleItalic";
+import { toggleStrike } from "./commands/toggleStrike";
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -23,8 +26,15 @@ export function activate(context: vscode.ExtensionContext) {
   registerCommandService.registerCommand("ultimate-md.toggleHeader4", toggleHeading4);
   registerCommandService.registerCommand("ultimate-md.toggleHeader5", toggleHeading5);
   registerCommandService.registerCommand("ultimate-md.toggleHeader6", toggleHeading6);
+  registerCommandService.registerCommand("ultimate-md.toggleHeader6", toggleHeading6);
 
   registerCommandService.registerCommand("ultimate-md.toggleBold", toggleBold);
+  registerCommandService.registerCommand("ultimate-md.toggleCode", toggleCode);
+  registerCommandService.registerCommand("ultimate-md.toggleBlockCode", toggleBlockCode);
+  registerCommandService.registerCommand("ultimate-md.toggleItalic", toggleItalic);
+  registerCommandService.registerCommand("ultimate-md.toggleStrike", toggleStrike);
+
+
   registerCommandService.commandsMap.forEach(x => {
     let disposable = vscode.commands.registerCommand(
       x.commandId,

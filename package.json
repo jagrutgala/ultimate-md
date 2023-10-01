@@ -56,6 +56,22 @@
       {
         "command": "ultimate-md.toggleBold",
         "title": "Toggle Bold"
+      },
+      {
+        "command": "ultimate-md.toggleCode",
+        "title": "Toggle Code"
+      },
+      {
+        "command": "ultimate-md.toggleBlockCode",
+        "title": "Toggle BlockCode"
+      },
+      {
+        "command": "ultimate-md.toggleItalic",
+        "title": "Toggle Italic"
+      },
+      {
+        "command": "ultimate-md.toggleStrike",
+        "title": "Toggle Strike"
       }
     ],
     "keybindings": [
@@ -92,6 +108,26 @@
       {
       "key": "alt+m b",
       "command": "ultimate-md.toggleBold",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m c",
+      "command": "ultimate-md.toggleCode",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m shift+c",
+      "command": "ultimate-md.toggleBlockCode",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m i",
+      "command": "ultimate-md.toggleItalic",
+      "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m s",
+      "command": "ultimate-md.toggleStrike",
       "when": "editorLangId == 'markdown'"
       }
     ]
