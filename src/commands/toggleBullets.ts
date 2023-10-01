@@ -21,7 +21,7 @@ export const toggleNumbers = (): vscode.Selection | void => {
 
   toggleCommandBlock("", "", LEADINGWHITESPACE_PATTERN)
     .then(() => {
-      toggleCommandBlock(startText, endText, BULLET_PATTERN).then().catch();
+      toggleCommandBlock(startText, endText, NUMBER_PATTERN).then().catch();
     })
     .catch(() => {
       vscode.window.showInformationMessage("Error in toggleNumbers")
@@ -33,7 +33,7 @@ export const toggleCheckboxes = (): vscode.Selection | void => {
 
   toggleCommandBlock("", "", LEADINGWHITESPACE_PATTERN)
     .then(() => {
-      toggleCommandBlock(startText, endText, BULLET_PATTERN).then().catch();
+      toggleCommandBlock(startText, endText, CHECKBOX_PATTERN).then().catch();
     })
     .catch(() => {
       vscode.window.showInformationMessage("Error in toggleCheckboxes")
