@@ -11,6 +11,9 @@
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
+  "repository": {
+    "url": "https://github.com/jagrutgala/ultimate-md"
+  },
   "contributes": {
     "languages": [
       {
