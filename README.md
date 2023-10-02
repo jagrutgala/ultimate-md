@@ -46,11 +46,11 @@ We appreciate your support and look forward to enhancing your Markdown editing e
 
 If you have any feedback, suggestions, or encounter any issues with the Ultimate Markdown extension, please feel free to open an issue on our [GitHub repository](https://github.com/jagrutgala/ultimate-md).
 
-We welcome contributions! If you'd like to contribute to the development of this extension, please check out our [contribution guidelines](CONTRIBUTING.md).
+We welcome contributions! If you'd like to contribute to the development of this extension, please check out our [contribution guidelines](https://github.com/jagrutgala/ultimate-md/blob/main/CONTRIBUTING.md).
 
 ## License
 
-This extension is licensed under the [MIT License](LICENSE.md).
+This extension is licensed under the [MIT License](https://github.com/jagrutgala/ultimate-md/blob/main/LICENSE.md).
 
 ---
 
