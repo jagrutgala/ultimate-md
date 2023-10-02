@@ -18,7 +18,7 @@ export const ITALIC_PATTERN = new RegExp(`[_]${WORD_MATCH}*[_]|${WORD_MATCH}+`);
 export const STRIKE_PATTERN = new RegExp(`[~][~]${WORD_MATCH}*[~][~]|${WORD_MATCH}+`);
 export const CODE_PATTERN = new RegExp(`[\`]${WORD_MATCH}*[\`]|${WORD_MATCH}+`);
 
-export const LEADINGWHITESPACE_PATTERN = new RegExp(`^\s*`);
-export const BULLET_PATTERN = new RegExp(`^(\s*)- (.*)$`);
-export const NUMBER_PATTERN = new RegExp(`^(\s*)[0-9]+[.] (.*)$`);
-export const CHECKBOX_PATTERN = new RegExp(`^(\s*)- \[ \] (.*)$`);
+export const LEADINGWHITESPACE_PATTERN = new RegExp(`^\s+`);
+export const BULLET_PATTERN = new RegExp(`^(\s+)- (.*)$`);
+export const NUMBER_PATTERN = new RegExp(`^(\s+)[0-9]+[.] (.*)$`);
+export const CHECKBOX_PATTERN = new RegExp(`^(\s+)- \[ \] (.*)$`);

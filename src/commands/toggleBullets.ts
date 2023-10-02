@@ -1,41 +1,24 @@
 import * as vscode from "vscode";
-import { toggleCommandBlock } from "../helpers/toggleCommand";
-import { BULLET_PATTERN, NUMBER_PATTERN, CHECKBOX_PATTERN, LEADINGWHITESPACE_PATTERN } from "../helpers/wordRegEx";
+import { toggleCommandBlock, toggleCommandLine } from "../helpers/toggleCommand";
+import { BULLET_PATTERN, NUMBER_PATTERN, CHECKBOX_PATTERN } from "../helpers/wordRegEx";
 
 export const toggleBullets = (): vscode.Selection | void => {
   const startText = "- ";
   const endText = "";
 
-  toggleCommandBlock("", "", LEADINGWHITESPACE_PATTERN)
-    .then(() => {
-      toggleCommandBlock(startText, endText, BULLET_PATTERN).then().catch();
-    })
-    .catch(() => {
-      vscode.window.showInformationMessage("Error in toggleBullets")
-    });
+  toggleCommandLine(startText, endText, BULLET_PATTERN, true).then().catch();
 };
 
 export const toggleNumbers = (): vscode.Selection | void => {
   const startText = "1. ";
   const endText = "";
 
-  toggleCommandBlock("", "", LEADINGWHITESPACE_PATTERN)
-    .then(() => {
-      toggleCommandBlock(startText, endText, NUMBER_PATTERN).then().catch();
-    })
-    .catch(() => {
-      vscode.window.showInformationMessage("Error in toggleNumbers")
-    });};
+  toggleCommandLine(startText, endText, NUMBER_PATTERN, true).then().catch();
+};
 
 export const toggleCheckboxes = (): vscode.Selection | void => {
   const startText = "- [ ]";
   const endText = "";
 
-  toggleCommandBlock("", "", LEADINGWHITESPACE_PATTERN)
-    .then(() => {
-      toggleCommandBlock(startText, endText, CHECKBOX_PATTERN).then().catch();
-    })
-    .catch(() => {
-      vscode.window.showInformationMessage("Error in toggleCheckboxes")
-    });
+  toggleCommandLine(startText, endText, CHECKBOX_PATTERN, true).then().catch();
 };
