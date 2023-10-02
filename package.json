@@ -92,6 +92,10 @@
       {
         "command": "ultimate-md.toggleCheckboxes",
         "title": "Toggle Checkboxes"
+      },
+      {
+        "command": "ultimate-md.changeLangToMd",
+        "title": "Change LanguageMode to Markdown"
       }
     ],
     "keybindings": [
@@ -174,6 +178,10 @@
       "key": "alt+m x",
       "command": "ultimate-md.toggleCheckboxes",
       "when": "editorLangId == 'markdown'"
+      },
+      {
+      "key": "alt+m m",
+      "command": "ultimate-md.changeLangToMd"
       }
     ]
   },

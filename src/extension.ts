@@ -9,6 +9,7 @@ import { toggleItalic } from "./commands/toggleItalic";
 import { toggleStrike } from "./commands/toggleStrike";
 import { insertImage, insertLink } from "./commands/insertImage";
 import { toggleBullets, toggleCheckboxes, toggleNumbers } from "./commands/toggleBullets";
+import { changeLangToMd } from "./commands/changeLangToMd";
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -41,6 +42,8 @@ export function activate(context: vscode.ExtensionContext) {
 
   registerCommandService.registerCommand("ultimate-md.insertImage", insertImage);
   registerCommandService.registerCommand("ultimate-md.insertLink", insertLink);
+
+  registerCommandService.registerCommand("ultimate-md.changeLangToMd", changeLangToMd);
 
   registerCommandService.commandsMap.forEach(x => {
     let disposable = vscode.commands.registerCommand(
