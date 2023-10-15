@@ -2,7 +2,7 @@
   "name": "ultimate-md",
   "displayName": "ultimate-md",
   "description": "",
-  "version": "0.0.2",
+  "version": "1.0.2",
   "engines": {
     "vscode": "^1.82.0"
   },
