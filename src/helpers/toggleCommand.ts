@@ -1,4 +1,11 @@
 import * as vscode from "vscode";
+import { EditCallback } from "./editCallback";
+
+export interface EditResult {
+  IsSuccess: boolean;
+  Selections: vscode.Selection[];
+}
+
 
 export const toggleCommand = async (
   startText: string,
@@ -174,6 +181,60 @@ export const toggleCommandLine = async (
     } else {
       reject(isSuccess);
     }
+  });
+};
+
+export const toggleCommandLineCallback = async (
+  startText: string,
+  endText: string,
+  pattern: RegExp,
+  callback: EditCallback
+): Promise<void | EditResult> => {
+  return new Promise(async (resolve, reject) => {
+    let editor = vscode.window.activeTextEditor;
+    if (editor === undefined || editor === null) {
+      return;
+    }
+    let selections = editor.selections;
+    let editedSelections: vscode.Selection[] = [];
+    let isSuccess: boolean = false;
+    try {
+      isSuccess = await editor.edit((editorBuilder) => {
+        selections.forEach((v) => {
+          if (editor) {
+            const isEmpty = v.isEmpty;
+            let newSelection = v;
+            let range: vscode.Range | undefined = undefined;
+
+            const line: vscode.TextLine = editor.document.lineAt(v.active.line);
+            if (range == undefined && range == null) {
+              if (isEmpty) {
+                range = line.range;
+              } else {
+                range = new vscode.Range(v.start, v.end);
+              }
+            }
+            newSelection = new vscode.Selection(range.start, range.end);
+            const text = editor.document.getText(range);
+            callback({
+              editorBuilder: editorBuilder,
+              endText: endText,
+              lineText: text,
+              selection: newSelection,
+              startText: startText,
+            });
+            editedSelections.push(newSelection);
+          }
+        });
+      });
+    } catch (error) {
+      isSuccess = false;
+    }
+    const result: EditResult = {
+      IsSuccess: isSuccess,
+      Selections: isSuccess ? editedSelections : selections.map(x => new vscode.Selection(x.anchor, x.active)),
+    }
+    return isSuccess ? resolve(result): reject(result);
   });
 };
 

@@ -22,3 +22,4 @@ export const LEADINGWHITESPACE_PATTERN = new RegExp(`^\s+`);
 export const BULLET_PATTERN = new RegExp(`^(\s+)- (.*)$`);
 export const NUMBER_PATTERN = new RegExp(`^(\s+)[0-9]+[.] (.*)$`);
 export const CHECKBOX_PATTERN = new RegExp(`^(\s+)- \[ \] (.*)$`);
+export const CHECKEDCHECKBOX_PATTERN = new RegExp(`^(\s+)- \[x\] (.*)$`);

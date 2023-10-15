@@ -8,8 +8,9 @@ import { toggleBlockCode, toggleCode } from "./commands/toggleCode";
 import { toggleItalic } from "./commands/toggleItalic";
 import { toggleStrike } from "./commands/toggleStrike";
 import { insertImage, insertLink } from "./commands/insertImage";
-import { toggleBullets, toggleCheckboxes, toggleNumbers } from "./commands/toggleBullets";
+import { toggleBullets, toggleCheckboxes, toggleNumbers, toggleTask } from "./commands/toggleBullets";
 import { changeLangToMd } from "./commands/changeLangToMd";
+import MarkdownIt = require("markdown-it");
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -21,7 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
-  const registerCommandService: RegisterCommandService = new RegisterCommandService();
+  const registerCommandService: RegisterCommandService = new RegisterCommandService(context);
 
   registerCommandService.registerCommand("ultimate-md.toggleHeader1", toggleHeading1);
   registerCommandService.registerCommand("ultimate-md.toggleHeader2", toggleHeading2);
@@ -39,21 +40,22 @@ export function activate(context: vscode.ExtensionContext) {
   registerCommandService.registerCommand("ultimate-md.toggleBullets", toggleBullets);
   registerCommandService.registerCommand("ultimate-md.toggleNumbers", toggleNumbers);
   registerCommandService.registerCommand("ultimate-md.toggleCheckboxes", toggleCheckboxes);
+  registerCommandService.registerCommand("ultimate-md.toggleTask", toggleTask);
 
   registerCommandService.registerCommand("ultimate-md.insertImage", insertImage);
   registerCommandService.registerCommand("ultimate-md.insertLink", insertLink);
 
   registerCommandService.registerCommand("ultimate-md.changeLangToMd", changeLangToMd);
 
-  registerCommandService.commandsMap.forEach(x => {
-    let disposable = vscode.commands.registerCommand(
-      x.commandId,
-      x.command
-    );
-    context.subscriptions.push(disposable);
-  });
+  return {
+    extendMarkdownIt(md: any) {
+      return md
+        .use(require('markdown-it-task-lists'))
+        .use(require('markdown-it-emoji'));
+    }
+  }
 
 }
 
 // This method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }

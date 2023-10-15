@@ -2,7 +2,7 @@
   "name": "ultimate-md",
   "displayName": "ultimate-md",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.82.0"
   },
@@ -14,12 +14,18 @@
   "repository": {
     "url": "https://github.com/jagrutgala/ultimate-md"
   },
+  "publisher": "jagrutgala",
   "contributes": {
+    "markdown.markdownItPlugins": true,
+    "markdown.previewStyles": [
+      "./src/styles/checkboxes.css"
+    ],
     "languages": [
       {
         "id": "markdown",
         "aliases": [
-          "markdown", "md"
+          "markdown",
+          "md"
         ],
         "extensions": [
           ".md"
@@ -97,94 +103,103 @@
         "title": "Toggle Checkboxes"
       },
       {
+        "command": "ultimate-md.toggleTask",
+        "title": "Toggle Task"
+      },
+      {
         "command": "ultimate-md.changeLangToMd",
         "title": "Change LanguageMode to Markdown"
       }
     ],
     "keybindings": [
       {
-      "key": "alt+m 1",
-      "command": "ultimate-md.toggleHeader1",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m 1",
+        "command": "ultimate-md.toggleHeader1",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m 2",
-      "command": "ultimate-md.toggleHeader2",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m 2",
+        "command": "ultimate-md.toggleHeader2",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m 3",
-      "command": "ultimate-md.toggleHeader3",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m 3",
+        "command": "ultimate-md.toggleHeader3",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m 4",
-      "command": "ultimate-md.toggleHeader4",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m 4",
+        "command": "ultimate-md.toggleHeader4",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m 5",
-      "command": "ultimate-md.toggleHeader5",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m 5",
+        "command": "ultimate-md.toggleHeader5",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m 6",
-      "command": "ultimate-md.toggleHeader6",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m 6",
+        "command": "ultimate-md.toggleHeader6",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m b",
-      "command": "ultimate-md.toggleBold",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m b",
+        "command": "ultimate-md.toggleBold",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m c",
-      "command": "ultimate-md.toggleCode",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m c",
+        "command": "ultimate-md.toggleCode",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m shift+c",
-      "command": "ultimate-md.toggleBlockCode",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m shift+c",
+        "command": "ultimate-md.toggleBlockCode",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m i",
-      "command": "ultimate-md.toggleItalic",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m i",
+        "command": "ultimate-md.toggleItalic",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m s",
-      "command": "ultimate-md.toggleStrike",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m s",
+        "command": "ultimate-md.toggleStrike",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m shift+i",
-      "command": "ultimate-md.insertImage",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m shift+i",
+        "command": "ultimate-md.insertImage",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m l",
-      "command": "ultimate-md.insertLink",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m l",
+        "command": "ultimate-md.insertLink",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m u",
-      "command": "ultimate-md.toggleBullets",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m u",
+        "command": "ultimate-md.toggleBullets",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m o",
-      "command": "ultimate-md.toggleNumbers",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m o",
+        "command": "ultimate-md.toggleNumbers",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m x",
-      "command": "ultimate-md.toggleCheckboxes",
-      "when": "editorLangId == 'markdown'"
+        "key": "alt+m x",
+        "command": "ultimate-md.toggleCheckboxes",
+        "when": "editorLangId == 'markdown'"
       },
       {
-      "key": "alt+m m",
-      "command": "ultimate-md.changeLangToMd"
+        "key": "alt+m a",
+        "command": "ultimate-md.toggleTask",
+        "when": "editorLangId == 'markdown'"
+      },
+      {
+        "key": "alt+m m",
+        "command": "ultimate-md.changeLangToMd"
       }
     ]
   },
@@ -197,15 +212,20 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.82.0",
+    "@types/markdown-it": "^13.0.2",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
+    "@types/vscode": "^1.82.0",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
+    "@vscode/test-electron": "^2.3.4",
     "eslint": "^8.47.0",
     "glob": "^10.3.3",
     "mocha": "^10.2.0",
-    "typescript": "^5.1.6",
-    "@vscode/test-electron": "^2.3.4"
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "markdown-it-emoji": "^2.0.2",
+    "markdown-it-task-lists": "^2.1.1"
   }
 }
