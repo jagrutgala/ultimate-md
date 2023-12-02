@@ -2,7 +2,7 @@
   "name": "ultimate-md",
   "displayName": "ultimate-md",
   "description": "",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "engines": {
     "vscode": "^1.59.0"
   },
@@ -215,7 +215,7 @@
     "@types/markdown-it": "^13.0.2",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
-    "@types/vscode": "^1.82.0",
+    "@types/vscode": "^1.59.0",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
     "@vscode/test-electron": "^2.3.4",
