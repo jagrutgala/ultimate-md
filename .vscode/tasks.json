@@ -7,7 +7,7 @@
             "label": "Run project",
             "type": "npm",
             "script": "watch",
-            "problemMatcher": "$tsc-watch",
+            "problemMatcher": "$ts-webpack-watch",
             "isBackground": true,
             "presentation": {
                 "reveal": "never"
@@ -18,13 +18,49 @@
             }
         },
         {
-            "label": "Package project",
-            "type": "shell",
-            "command": "vsce package -o ./dist",
+            "label": "Build project",
+            "type": "npm",
+            "script": "compile",
+            "problemMatcher": [],
+            "isBackground": true,
+            "presentation": {
+                "reveal": "never"
+            },
             "group": {
                 "kind": "build",
                 "isDefault": false
             }
-        }
+        },
+        {
+            "label": "Build project::Prod",
+            "type": "npm",
+            "script": "compile::prod",
+            "problemMatcher": [],
+            "isBackground": true,
+            "presentation": {
+                "reveal": "never"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "Package project",
+            "type": "shell",
+            "command": "mkdir -p ./dist; vsce package -o ./dist",
+            "dependsOn": ["Build project::Prod"],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "clear": true
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
     ]
 }
